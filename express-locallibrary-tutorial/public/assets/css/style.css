@@ -1,0 +1,173 @@
+body,html {
+  max-width: 800px;
+  margin: auto;
+  height: 100%;
+}
+
+h1 {
+  width: 100%;
+  background-color: #fff;
+  padding: 0px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+.grid-container {
+  padding: 0px;
+  margin: auto;
+}
+
+.init-container {
+  border-left: solid #000 1px;
+  border-right: solid #000 1px;
+  background-image: url("../images/trivia-bg.jpg");
+  background-size:     cover;
+  background-repeat:   repeat-y;
+  background-position: center center;  
+  min-height: 100%;
+}
+
+.screen-category {
+  display: visible;
+}
+
+.category-selection {
+  font-size: 75px;
+}
+
+.cell-center {
+  text-align: center;
+}
+
+.screen-loading {
+  display: none;
+  margin: auto;
+  color: #fff;
+  font-size: 100px;
+  text-align: center;
+}
+
+.screen-game {
+  display: none;
+}
+
+.screen-round-over {
+  display: none;
+}
+
+.screen-game-over {
+  display: none;
+}
+
+.icons {
+  padding: 30px;
+  margin: 10px;
+  border-width: 3px;
+  border-style: dashed;
+  background-color: #fff;
+  position: relative;
+}
+
+.has-tip {
+  cursor: pointer;
+  border-bottom: 0px;
+}
+
+.icons i:hover {
+  transform: scale(1.25);
+}
+
+.select-choice {
+  background-color: #fff;
+  margin-bottom: 25px;
+}
+
+.button-group input{
+  display: none;
+}
+
+.button-group input:checked + label,
+.button-group input:checked + label:active {
+  background-color: #fc9626;
+}
+
+.button-group label {
+  text-align: left;
+}
+
+.button-group, .game-question, .game-submit, .game-bar {
+  padding: 5px;
+  line-height: 30px;
+}
+
+.button {
+  line-height: 30px;
+  background-color: #1db1f6
+}
+
+.game-over {
+  width: 100%;
+  padding: 25px;
+  margin: 15px 0 15px 0;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.game-over span {
+  padding: 25px 10px 25px 10px;
+  margin: 10px 0 10px 0;
+  width: 100%;
+  font-size: 25px;
+}
+
+.round-over {
+  width: 100%;
+  padding: 25px;
+  margin: 15px 0 15px 0;
+  font-size: 25px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.game-bar {
+  margin: 5px;
+  padding: 0px;
+  box-sizing: border-box;
+  border: solid #000 1px;
+}
+
+.game-bar-status {
+  background-color: #1db1f6;
+  width: 100%;
+  padding: 5px 0px 5px 0px;
+  margin: 0px;
+  white-space: nowrap;
+  font-weight: bold;
+  transition-property: width;
+  transition-duration: 10s;
+  transition-timing-function: linear;
+}
+
+.game-seconds {
+  bottom: 0px;
+  left: 0px;
+  margin-left: 15px;
+}
+
+#icon-film {
+  color: #740c0f;
+}
+
+#icon-music {
+  color: #1db1f6
+}
+
+#icon-games {
+  color: #fc9626;
+}
+
+#icon-geo {
+  color: #fee934;
+}
