@@ -21,15 +21,18 @@ app.get('/auth/google/callback',
     (req, res) => {}
 );
 
-app.get('/tokeninfo', (req, res) => {
-  console.log(token);
-});
-
 app.get('/logout', (req, res) => {
   req.logout();
   req.session = null;
   res.redirect('/');
 });
+
+app.get('/connect/google', passport.authenticate('google', {
+  scope: [
+      'https://www.googleapis.com/auth/userinfo.profile',
+      'https://www.googleapis.com/auth/userinfo.email'
+  ]
+}));
 
 app.use(cookieSession({
   name: 'session',
