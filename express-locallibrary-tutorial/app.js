@@ -7,7 +7,7 @@ const express = require('express'),
     passport = require('passport'),
     auth = require('./auth');
     cookieParser = require('cookie-parser');
-    cookieParser = require('cookie-session');
+    cookieSession = require('cookie-session');
 
 auth(passport);
 app.use(passport.initialize());
