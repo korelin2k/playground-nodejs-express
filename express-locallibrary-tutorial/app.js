@@ -1,10 +1,28 @@
 var createError = require('http-errors');
-var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var app = express();
+const express = require('express'),
+    app = express(),
+    passport = require('passport'),
+    auth = require('./auth');
+auth(passport);
+app.use(passport.initialize());
+app.get('/', (req, res) => {
+    res.json({
+        status: 'session cookie not set'
+    });
+});
+app.get('/auth/google', passport.authenticate('google', {
+    scope: ['https://www.googleapis.com/auth/userinfo.profile']
+}));
+app.get('/auth/google/callback',
+    passport.authenticate('google', {
+        failureRedirect: '/'
+    }),
+    (req, res) => {}
+);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
