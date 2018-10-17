@@ -22,8 +22,7 @@ app.get('/auth/google/callback',
 );
 
 app.get('/tokeninfo', (req, res) => {
-  console.log(res);
-  console.log(req);
+  console.log(token);
 });
 
 app.get('/logout', (req, res) => {
