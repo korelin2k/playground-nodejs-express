@@ -27,13 +27,6 @@ app.get('/logout', (req, res) => {
   res.redirect('/');
 });
 
-app.get('/connect/google', passport.authenticate('google', {
-  scope: [
-      'https://www.googleapis.com/auth/userinfo.profile',
-      'https://www.googleapis.com/auth/userinfo.email'
-  ]
-}));
-
 app.use(cookieSession({
   name: 'session',
   keys: ['123testingpoc']
