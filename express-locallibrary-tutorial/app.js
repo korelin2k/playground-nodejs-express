@@ -21,6 +21,11 @@ app.get('/auth/google/callback',
     (req, res) => {}
 );
 
+app.get('/tokeninfo', (req, res) => {
+  console.log(res);
+  console.log(req);
+});
+
 app.get('/logout', (req, res) => {
   req.logout();
   req.session = null;
