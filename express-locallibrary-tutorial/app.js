@@ -1,19 +1,16 @@
 var createError = require('http-errors');
 var path = require('path');
-var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 const express = require('express'),
     app = express(),
     passport = require('passport'),
     auth = require('./auth');
+    cookieParser = require('cookie-parser');
+    cookieParser = require('cookie-session');
+
 auth(passport);
 app.use(passport.initialize());
-app.get('/', (req, res) => {
-    res.json({
-        status: 'session cookie not set'
-    });
-});
 app.get('/auth/google', passport.authenticate('google', {
     scope: ['https://www.googleapis.com/auth/userinfo.profile']
 }));
@@ -24,6 +21,18 @@ app.get('/auth/google/callback',
     (req, res) => {}
 );
 
+app.get('/logout', (req, res) => {
+  req.logout();
+  req.session = null;
+  res.redirect('/');
+});
+
+app.use(cookieSession({
+  name: 'session',
+  keys: ['123testingpoc']
+}));
+app.use(cookieParser());
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -31,7 +40,6 @@ app.set('view engine', 'pug');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.static('public'))
